@@ -3,16 +3,6 @@ package com.raiffeisen.lesson2.homework;
 public class Main {
 
     public static void main(String[] args) {
-/*        // write your code here
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Fill in number: ");
-        int numberOne = scanner.nextInt();
-        System.out.println("Fill in number: ");
-        int numberTwo = scanner.nextInt();
-        System.out.println("Result: ");
-        System.out.println(numberOne + numberTwo);
-        scanner.close();*/
-
         PresentBox presentBox = new PresentBox();
 
         Gift gift1 = new Gift("Test",1.1,1.1);
@@ -38,7 +28,5 @@ public class Main {
         presentBox.getGiftList();
         presentBox.deleteGiftWithType("Test5");
         presentBox.getGiftList();
-
-
     }
 }
