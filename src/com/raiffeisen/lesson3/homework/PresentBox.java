@@ -40,13 +40,17 @@ public class PresentBox {
     }
 
     public void getGiftList() {
-        int i = 1;
-        System.out.println("Подарок весом " + String.format("%.2f", getPresentBoxCost()) + " и стоимостью " + String.format("%.2f", getPresentBoxWeight()) + " включает:");
-        for (Gift gift : gifts) {
-            System.out.println(i + ". " + gift.getClass().getSimpleName());
-            i++;
+        if (gifts.size() == 0) {
+            System.out.println("Список пуст");
+        } else {
+            int i = 1;
+            System.out.println("Подарок весом " + String.format("%.2f", getPresentBoxCost()) + " и стоимостью " + String.format("%.2f", getPresentBoxWeight()) + " включает:");
+            for (Gift gift : gifts) {
+                System.out.println(i + ". " + gift.getClass().getSimpleName());
+                i++;
+            }
+            System.out.println(" ");
         }
-        System.out.println(" ");
     }
 
     public void addGift(Gift gift) {
@@ -62,5 +66,4 @@ public class PresentBox {
             }
         }
     }
-
 }

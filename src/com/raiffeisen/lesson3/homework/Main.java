@@ -19,13 +19,24 @@ public class Main {
     public static void main(String[] args) {
         PresentBox presentBox = new PresentBox();
 
-        Gift gift1 = new Candy("Candy_1", 1.1, 1.1);
+
+        //ConsoleMenu.menuStart(presentBox);
+        ConsoleMenu.menuMain(presentBox);
+
+
+
+
+
+/*        Gift gift1 = new Candy("Candy_1", 1.1, 1.1);
         Gift gift2 = new Candy("Candy_2", 1.1, 2.1);
         Gift gift3 = new Sweet("Sweet_1", 1.1, 3.1);
         Gift gift4 = new Sweet("Sweet_2", 1.1, 4.1);
         Gift gift5 = new Sweet("Sweet_3", 1.1, 5.1);
         Gift gift6 = new Jellybean("Jellybean_1", 1.1, 6.1);
         Gift gift7 = new Jellybean("Jellybean_2", 1.1, 7.1);
+
+
+
 
 
         presentBox.addGift(gift1);
@@ -42,6 +53,6 @@ public class Main {
         presentBox.deleteGiftWithType("Candy");
         presentBox.getGiftList();
         presentBox.deleteGiftWithType("Sweet");
-        presentBox.getGiftList();
+        presentBox.getGiftList();*/
     }
 }

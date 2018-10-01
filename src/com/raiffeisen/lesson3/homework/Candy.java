@@ -15,6 +15,4 @@ public class Candy extends Gift {
         this.weight = weight;
         this.cost = cost;
     }
-
-
 }
