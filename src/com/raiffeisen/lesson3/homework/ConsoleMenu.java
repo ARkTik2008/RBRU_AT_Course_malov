@@ -13,10 +13,11 @@ public class ConsoleMenu {
 
         System.out.println("Выберите команду:");
         System.out.println("1. Добавить");
-        System.out.println("2. Удалить");
+        System.out.println("2. Удалить определенный тип");
         System.out.println("3. Стоимость всего подарка");
         System.out.println("4. Вес всего подарка");
         System.out.println("5. Показать список сладостей в подарке");
+        System.out.println("6. Удалить определенный подарок");
         System.out.println("0. Выход");
 
         int choice = -1;
@@ -31,7 +32,7 @@ public class ConsoleMenu {
                         ConsoleMenu.menuAdd(presentBox);
                         break;
                     case 2:
-                        ConsoleMenu.menuDelete(presentBox);
+                        ConsoleMenu.menuTypeDelete(presentBox);
                         break;
                     case 3:
                         presentBox.printPresentBoxCost();
@@ -42,9 +43,11 @@ public class ConsoleMenu {
                         menuMain(presentBox);
                         break;
                     case 5:
-                        presentBox.getGiftList();
+                        presentBox.getGiftInfo();
                         menuMain(presentBox);
                         break;
+                    case 6:
+                        ConsoleMenu.menuGiftDelete(presentBox);
                     case 0:
                         System.out.println(" ");
                         System.out.println("Программа завершается...");
@@ -104,7 +107,29 @@ public class ConsoleMenu {
         }
     }
 
-    public static void menuDelete(PresentBox presentBox) {
+    public static void menuGiftDelete(PresentBox presentBox) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Укажите, какой подарок удалить:");
+
+        presentBox.getGiftList();
+
+        int choice = -1;
+
+        try {
+            while (choice != 0) {
+                choice = scanner.nextInt();
+                presentBox.deleteGiftWithIndex(choice);
+                menuMain(presentBox);
+            }
+        } catch (InputMismatchException e) {
+            System.out.println(" ");
+            System.out.println("WARNING! Incorrect value!");
+            System.out.println(" ");
+            menuTypeDelete(presentBox);
+        }
+    }
+
+    public static void menuTypeDelete(PresentBox presentBox) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Укажите, какой тип подарка удалить:");
         System.out.println("1. Candy");
@@ -136,9 +161,9 @@ public class ConsoleMenu {
             }
         } catch (InputMismatchException e) {
             System.out.println(" ");
-            System.out.println("WARNING! Incorrect value!");
+            System.out.println("ВНИМАНИЕ! НЕКОРРЕКТНОЕ ЗНАЧЕНИЕ!");
             System.out.println(" ");
-            menuDelete(presentBox);
+            menuTypeDelete(presentBox);
         }
     }
 }

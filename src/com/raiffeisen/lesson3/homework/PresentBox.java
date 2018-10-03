@@ -39,14 +39,27 @@ public class PresentBox {
         System.out.println(" ");
     }
 
-    public void getGiftList() {
+    public void getGiftInfo() {
         if (gifts.size() == 0) {
             System.out.println("Список пуст");
         } else {
             int i = 1;
             System.out.println("Подарок весом " + String.format("%.2f", getPresentBoxCost()) + " и стоимостью " + String.format("%.2f", getPresentBoxWeight()) + " включает:");
             for (Gift gift : gifts) {
-                System.out.println(i + ". " + gift.getClass().getSimpleName());
+                System.out.println(i + ". " + gift.getClass().getSimpleName() + " весом " + gift.getWeight() + " стоимостью " + gift.getCost());
+                i++;
+            }
+            System.out.println(" ");
+        }
+    }
+
+    public void getGiftList() {
+        if (gifts.size() == 0) {
+            System.out.println("Список пуст");
+        } else {
+            int i = 1;
+            for (Gift gift : gifts) {
+                System.out.println(i + ". " + gift.getClass().getSimpleName() + " весом " + gift.getWeight() + " стоимостью " + gift.getCost());
                 i++;
             }
             System.out.println(" ");
@@ -64,6 +77,14 @@ public class PresentBox {
             if (iterator.next().getClass().getSimpleName().equals(giftType)) {
                 iterator.remove();
             }
+        }
+    }
+
+    public void deleteGiftWithIndex(int index) {
+        if (index > gifts.size()) {
+            System.out.println("ВНИМАНИЕ! НЕКОРРЕКТНОЕ ЗНАЧЕНИЕ!");
+        } else {
+            gifts.remove(index - 1);
         }
     }
 }
