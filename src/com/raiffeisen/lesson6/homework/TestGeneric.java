@@ -15,14 +15,14 @@ public class TestGeneric {
         System.out.println(" ");
     }
 
-    public static <T extends Comparable<T>> void printMaxArrayElement(T[] array) {
+    public static <T extends Comparable<T>> T printMaxArrayElement(T[] array) {
         T max = array[0];
         for (T element : array) {
             if (element.compareTo(max) > 0) {
                 max = element;
             }
         }
-        System.out.println(max);
-        System.out.println();
+        //System.out.println(max);
+        return max;
     }
 }

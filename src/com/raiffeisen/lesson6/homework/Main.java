@@ -10,11 +10,16 @@ public class Main {
 
 
         TestGeneric.printArrayElements(intArray);
-        TestGeneric.printMaxArrayElement(intArray);
+        //TestGeneric.printMaxArrayElement(intArray);
+        System.out.println("Max:" + TestGeneric.printMaxArrayElement(intArray));
+        System.out.println();
 
         TestGeneric.printArrayElements(doubleArray);
-        TestGeneric.printMaxArrayElement(doubleArray);
+        //TestGeneric.printMaxArrayElement(doubleArray);
+        System.out.println("Max:" + TestGeneric.printMaxArrayElement(doubleArray));
+        System.out.println();
 
         TestGeneric.printArrayElements(stringArray);
+
     }
 }
