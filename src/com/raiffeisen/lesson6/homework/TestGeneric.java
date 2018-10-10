@@ -6,6 +6,8 @@ package com.raiffeisen.lesson6.homework;
 Добавить метод возвращаемый максимальное значение из массива вне зависимости что в нем хранится ( int или double)
 */
 
+import java.util.ArrayList;
+
 public class TestGeneric {
 
     public static <E> void printArrayElements(E[] array) {
@@ -23,6 +25,16 @@ public class TestGeneric {
             }
         }
         //System.out.println(max);
+        return max;
+    }
+
+    public static <T extends Comparable<T>> T printMaxCollectionElement(ArrayList<T> arrayList) {
+        T max = arrayList.get(0);
+        for (T element : arrayList) {
+            if (element.compareTo(max) > 0) {
+                max = element;
+            }
+        }
         return max;
     }
 }
