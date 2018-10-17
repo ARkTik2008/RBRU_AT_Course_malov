@@ -24,7 +24,8 @@ public class xmlMain {
 
         Document doc = readXml();
 
-        inData.entrySet().forEach(e->getNode(e.getKey(),doc).setTextContent(e.getValue()));
+        inData.entrySet().forEach(e -> getNode(e.getKey(), doc).setTextContent(e.getValue()));
+        System.out.println(doc.getTextContent());
     }
 
     private static Map<String, String> parseFile() throws IOException {
@@ -38,15 +39,16 @@ public class xmlMain {
         );
         return data;
     }
-    public static Element getNode(String name, Document document){
-        NodeList nList = document.getElementsByTagName("root");
-        for (int temp = 0; temp < nList.getLength(); temp++){
+
+    public static Element getNode(String name, Document document) {
+        NodeList nList = document.getChildNodes().item(0).getChildNodes();
+        for (int temp = 0; temp < nList.getLength(); temp++) {
             Node nNode = nList.item(temp);
-            if ((nNode.getNodeType() == Node.ELEMENT_NODE) &&(nNode.getNodeName().equals(name))){
+            if ((nNode.getNodeType() == Node.ELEMENT_NODE) && (nNode.getNodeName().equals(name))) {
                 return (Element) nNode;
             }
         }
-    return null;
+        return null;
     }
 
 
